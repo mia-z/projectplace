@@ -9,7 +9,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-        "typegen": "supabase gen types typescript --local --schema public > ./src/supabase.d.ts"
+		"typegen": "supabase gen types typescript --local --schema public > ./src/supabase.d.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.1",
@@ -29,11 +29,11 @@
 		"vite": "^4.4.2"
 	},
 	"type": "module",
-	"packageManager": "yarn@4.0.2",
 	"dependencies": {
 		"pixi-cull": "2.1.1",
 		"pixi-viewport": "^5.0.2",
 		"pixi.js": "^7.3.2",
 		"svelte-pixi": "^0.1.3"
-	}
+	},
+	"packageManager": "yarn@4.0.2"
 }
