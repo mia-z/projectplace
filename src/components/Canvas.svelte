@@ -5,7 +5,9 @@
     import { onMount } from "svelte";
     import { Viewport, Wheel } from "pixi-viewport";
 
-    export let init = false;
+    export let rows = 20;
+    export let cols = 20;
+    export let canvasInit = false;
 
     const SIZE = 100;
 
@@ -34,8 +36,8 @@
 
         viewport.addChild(container);
 
-        for (let x = 0; x < 20; x++) {
-            for (let y = 0; y < 20; y++) {
+        for (let x = 0; x < rows; x++) {
+            for (let y = 0; y < cols; y++) {
                 const tile = new PIXI.Sprite(PIXI.Texture.WHITE);
                 tile.tint = randomColourName();
 
@@ -53,8 +55,8 @@
         }
 
         viewport.setZoom(0.1);
-        viewport.moveCenter(5000, 5000);
-        init = true;
+        viewport.moveCenter((rows * SIZE) / 2, (cols * SIZE) / 2);
+        canvasInit = true;
         
         return () => {
             tiles.forEach(tile => tile.destroy());
@@ -62,11 +64,13 @@
     });
 </script>
 
-<Application
-    antialias={false}
-    bind:instance={app}
-    width={window.innerWidth} 
-    height={window.innerHeight}
->
 
-</Application>
+<div class={"absolute top-0 left-0 z-10"}>
+    <Application
+        bind:instance={app}
+        antialias={false}
+        width={window.innerWidth} 
+        height={window.innerHeight}
+        backgroundAlpha={0}
+    />
+</div>
