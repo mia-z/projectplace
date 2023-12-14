@@ -1,9 +1,13 @@
 <script lang="ts">
+    import { QueryClient, QueryClientProvider } from "@sveltestack/svelte-query";
     import "$styles/base.scss";
+
+    const client = new QueryClient();
 </script>
 
-<div class={"relative"}>
-    <div class={"overlay w-screen h-48 absolute -bottom-[100vh] left-0 bg-blue-400 z-20"}>
+<QueryClientProvider {client}>
+    <div class={"relative"}>
+        <slot />
     </div>
-    <slot />
-</div>
+</QueryClientProvider>
+

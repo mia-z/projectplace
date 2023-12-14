@@ -1,9 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export const config: Config = {
-    content: [
-        "src/**/*.svelte"
-    ],    
+    content: ["src/**/*.svelte"],
     theme: {
         extend: {
             spacing: {
@@ -12,17 +10,17 @@ export const config: Config = {
                 160: "40rem",
                 176: "44rem",
                 192: "48rem",
-                208: "52rem"
+                208: "52rem",
             },
             fontFamily: {
-                "lobster": ["Lobster", "cursive"],
+                lobster: ["Lobster", "cursive"],
                 "open-sans": ["Open Sans", "sans-serif"],
-                "arimo": ["Arimo"],
-                "roboto": ["Roboto Flex", "sans-serif"],
+                arimo: ["Arimo"],
+                roboto: ["Roboto Flex", "sans-serif"],
                 "roboto-monospace": ["Roboto Mono", "monospace"],
                 "wix-madefor-text": ["Wix Madefor Text", "sans-serif"],
-                "nunito": ["Nunito Sans", "sans-serif"],
-            }
+                nunito: ["Nunito Sans", "sans-serif"],
+            },
         },
     },
     plugins: [],

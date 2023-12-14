@@ -5,9 +5,14 @@
     import { onMount } from "svelte";
     import { Viewport, Wheel } from "pixi-viewport";
 
-    export let rows = 20;
-    export let cols = 20;
     export let canvasInit = false;
+    export let roomData: RoomData = {
+        roomName: "new room",
+        cols: 20,
+        rows: 20,
+        tileSize: 100,
+        tiles: [],
+    };
 
     const SIZE = 100;
 
@@ -15,14 +20,14 @@
     let app: PIXI.Application;
     let viewport: Viewport;
 
-    let tiles: PIXI.Sprite[] = []
+    let tiles: PIXI.Sprite[] = [];
 
     onMount(() => {
         viewport = new Viewport({
             screenWidth: window.innerWidth,
             screenHeight: window.innerHeight,
-            worldWidth: 100000,
-            worldHeight: 100000,
+            worldWidth: roomData.rows * SIZE,
+            worldHeight: roomData.cols * SIZE,
             events: app.renderer.events,
         });
 
@@ -36,8 +41,14 @@
 
         viewport.addChild(container);
 
-        for (let x = 0; x < rows; x++) {
-            for (let y = 0; y < cols; y++) {
+        return () => {
+            tiles.forEach((tile) => tile.destroy());
+        };
+    });
+
+    const initNewBoard = () => {
+        for (let x = 0; x < roomData.rows; x++) {
+            for (let y = 0; y < roomData.cols; y++) {
                 const tile = new PIXI.Sprite(PIXI.Texture.WHITE);
                 tile.tint = randomColourName();
 
@@ -55,21 +66,19 @@
         }
 
         viewport.setZoom(0.1);
-        viewport.moveCenter((rows * SIZE) / 2, (cols * SIZE) / 2);
+        viewport.moveCenter(
+            (roomData.rows * SIZE) / 2,
+            (roomData.cols * SIZE) / 2,
+        );
         canvasInit = true;
-        
-        return () => {
-            tiles.forEach(tile => tile.destroy());
-        }
-    });
+    };
 </script>
 
-
-<div class={"absolute top-0 left-0 z-10"}>
+<div class={"absolute left-0 top-0 z-10"}>
     <Application
         bind:instance={app}
         antialias={false}
-        width={window.innerWidth} 
+        width={window.innerWidth}
         height={window.innerHeight}
         backgroundAlpha={0}
     />

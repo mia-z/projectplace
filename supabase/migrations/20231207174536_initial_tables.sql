@@ -2,7 +2,7 @@ CREATE SEQUENCE username_alpha;
 
 CREATE TABLE rooms (
     id SERIAL PRIMARY KEY,
-    room_name VARCHAR(40) NOT NULL,
+    room_name VARCHAR(40) UNIQUE NOT NULL,
     room_data VARCHAR NULL
 );
 
