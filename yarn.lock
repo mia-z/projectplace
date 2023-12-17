@@ -2460,6 +2460,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pixi-tween@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "pixi-tween@npm:0.2.0"
+  checksum: 846d77ab744aca5a57c63393101bd862a63d81c9bdcbf1d92c6bfe735bc64d1883c516a41ff737eb28edf50f7492085c46005ee6bba4421374988515d0b1237e
+  languageName: node
+  linkType: hard
+
 "pixi-viewport@npm:^5.0.2":
   version: 5.0.2
   resolution: "pixi-viewport@npm:5.0.2"
@@ -2684,6 +2691,7 @@ __metadata:
     "@sveltestack/svelte-query": "npm:^1.6.0"
     autoprefixer: "npm:^10.4.16"
     pixi-cull: "npm:2.1.1"
+    pixi-tween: "npm:^0.2.0"
     pixi-viewport: "npm:^5.0.2"
     pixi.js: "npm:^7.3.2"
     postcss: "npm:^8.4.31"

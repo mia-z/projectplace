@@ -33,6 +33,7 @@
 		"@supabase/supabase-js": "^2.39.0",
 		"@sveltestack/svelte-query": "^1.6.0",
 		"pixi-cull": "2.1.1",
+		"pixi-tween": "^0.2.0",
 		"pixi-viewport": "^5.0.2",
 		"pixi.js": "^7.3.2",
 		"svelte-pixi": "^0.1.3"
